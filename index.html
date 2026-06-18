@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Tollywood Movies - Watch trailers, browse latest Telugu films, top rated movies, actors and more on a premium OTT-style Tollywood movie platform." />
+<title>Tollywood Movies - Premium Telugu Cinema Hub</title>
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== Loader ===== -->
+<div id="loader" class="loader">
+  <div class="reel">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+  <p>Loading Tollywood Magic...</p>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="header" id="header">
+  <div class="nav-container">
+    <a href="#home" class="logo">
+      <span class="logo-icon">🎬</span>
+      <span class="logo-text">TOLLYWOOD <small>MOVIES</small></span>
+    </a>
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#trending">Trending</a></li>
+        <li><a href="#latest">Latest</a></li>
+        <li><a href="#upcoming">Upcoming</a></li>
+        <li><a href="#trailers">Trailers</a></li>
+        <li><a href="#toprated">Top Rated</a></li>
+        <li><a href="#actors">Actors</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+      <button id="hamburger" class="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero Slider ===== -->
+<section class="hero" id="home">
+  <div class="slider" id="slider"></div>
+  <div class="slider-dots" id="sliderDots"></div>
+  <button class="slider-arrow prev" id="prevSlide">‹</button>
+  <button class="slider-arrow next" id="nextSlide">›</button>
+</section>
+
+<!-- ===== Search & Filters ===== -->
+<section class="search-section" id="search">
+  <div class="container glass">
+    <h2 class="section-title">Discover Movies</h2>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Search Tollywood movies..." />
+      <div class="suggestions" id="suggestions"></div>
+    </div>
+    <div class="filters">
+      <select id="filterGenre"><option value="">All Genres</option></select>
+      <select id="filterRating">
+        <option value="">All Ratings</option>
+        <option value="9">9+ IMDb</option>
+        <option value="8">8+ IMDb</option>
+        <option value="7">7+ IMDb</option>
+        <option value="6">6+ IMDb</option>
+        <option value="5">5+ IMDb</option>
+        <option value="4">4+ IMDb</option>
+        <option value="3">3+ IMDb</option>
+        <option value="2">2+ IMDb</option>
+      </select>
+      <select id="filterYear"><option value="">All Years</option></select>
+    </div>
+    <div class="category-pills" id="categoryPills"></div>
+    <div class="movie-grid" id="searchResults"></div>
+  </div>
+</section>
+
+<!-- ===== Trending ===== -->
+<section class="section" id="trending">
+  <div class="container">
+    <h2 class="section-title">🔥 Trending Now</h2>
+    <div class="movie-grid" id="trendingGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Latest ===== -->
+<section class="section" id="latest">
+  <div class="container">
+    <h2 class="section-title">🆕 Latest Releases</h2>
+    <div class="movie-grid" id="latestGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Upcoming ===== -->
+<section class="section" id="upcoming">
+  <div class="container">
+    <h2 class="section-title">🎟️ Upcoming Movies</h2>
+    <div class="movie-grid upcoming-grid" id="upcomingGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Trailers ===== -->
+<section class="section" id="trailers">
+  <div class="container">
+    <h2 class="section-title">🎥 Popular Trailers</h2>
+    <div class="trailer-grid" id="trailerGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Top Rated ===== -->
+<section class="section" id="toprated">
+  <div class="container">
+    <h2 class="section-title">⭐ Top 10 Rated</h2>
+    <div class="toprated-list" id="topRatedList"></div>
+  </div>
+</section>
+
+<!-- ===== Actors ===== -->
+<section class="section" id="actors">
+  <div class="container">
+    <h2 class="section-title">🌟 Featured Actors</h2>
+    <div class="actor-grid" id="actorGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Gallery ===== -->
+<section class="section" id="gallery">
+  <div class="container">
+    <h2 class="section-title">🖼️ Movie Gallery</h2>
+    <div class="gallery-tabs">
+      <button class="gtab active" data-tab="posters">Posters</button>
+      <button class="gtab" data-tab="stills">Movie Stills</button>
+      <button class="gtab" data-tab="bts">Behind The Scenes</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Reviews ===== -->
+<section class="section" id="reviews">
+  <div class="container">
+    <h2 class="section-title">💬 Reviews & Ratings</h2>
+    <div class="reviews-wrap">
+      <form class="review-form glass" id="reviewForm">
+        <h3>Write a Review</h3>
+        <input type="text" id="reviewName" placeholder="Your Name" required />
+        <input type="text" id="reviewMovie" placeholder="Movie Name" required />
+        <div class="star-input" id="starInput">
+          <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+        </div>
+        <textarea id="reviewText" placeholder="Your Review..." required></textarea>
+        <button type="submit" class="btn-primary">Submit Review</button>
+      </form>
+      <div class="review-list" id="reviewList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Watchlist ===== -->
+<section class="section" id="watchlist">
+  <div class="container">
+    <h2 class="section-title">❤️ My Watchlist</h2>
+    <div class="movie-grid" id="watchlistGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Newsletter ===== -->
+<section class="section newsletter" id="newsletter">
+  <div class="container glass newsletter-box">
+    <h2>📧 Stay In The Spotlight</h2>
+    <p>Subscribe for the latest Tollywood movie updates & release alerts.</p>
+    <form id="newsletterForm">
+      <input type="email" id="newsletterEmail" placeholder="Enter your email" required />
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <h2 class="section-title">📞 Contact Us</h2>
+    <form class="contact-form glass" id="contactForm">
+      <input type="text" id="contactName" placeholder="Your Name" required />
+      <input type="email" id="contactEmail" placeholder="Your Email" required />
+      <textarea id="contactMessage" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/karnati-sudheer-21970437a/">Li</a>
+        <a href="https://github.com/KarnatiSudheer123">G</a>
+        <a href="https://www.facebook.com/karnati.sudheer.18">FB</a>
+        <a href="https://www.instagram.com/karnati_sudheer_15/">Ig</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-grid container">
+    <div>
+      <h3 class="logo-text">TOLLYWOOD <small>MOVIES</small></h3>
+      <p>Your premium destination for Telugu cinema. Trailers, reviews, news and more.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#trending">Trending</a>
+      <a href="#latest">Latest</a>
+      <a href="#upcoming">Upcoming</a>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      <a href="#">Action</a>
+      <a href="#">Romance</a>
+      <a href="#">Comedy</a>
+      <a href="#">Thriller</a>
+      <a href="#">Drama</a>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/karnati-sudheer-21970437a/">Li</a>
+        <a href="https://github.com/KarnatiSudheer123">G</a>
+        <a href="https://www.facebook.com/karnati.sudheer.18">FB</a>
+        <a href="https://www.instagram.com/karnati_sudheer_15/">Ig</a>
+      </div>
+    </div>
+  </div>
+  <p class="copyright">© 2026 Tollywood Movies. All Rights Reserved.</p>
+</footer>
+
+<!-- ===== Trailer Modal ===== -->
+<div class="modal" id="trailerModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">×</button>
+    <div class="video-wrap"><iframe id="modalIframe" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>
+  </div>
+</div>
+
+<!-- ===== Lightbox ===== -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">×</span>
+  <img id="lightboxImg" alt="Gallery preview" />
+</div>
+
+<!-- ===== Scroll Top ===== -->
+<button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
